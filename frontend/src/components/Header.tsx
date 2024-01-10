@@ -9,6 +9,7 @@ const Header = () => {
             <span className='text-white text-3xl font-bold tracking-tight'>
                 <Link to="/">HappyHolidays.com</Link>
             </span>
+            <span className="flex space-x-2">
             {isLoggedIn ? (
             <>
               <Link
@@ -33,6 +34,7 @@ const Header = () => {
               Sign In
             </Link>
           )}
+          </span>
         </div>
     </div>
   )

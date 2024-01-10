@@ -19,7 +19,6 @@ export const register = async (formData: RegisterFormData) => {
   };
 
   export const validateToken = async () => {
-    try {
       const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
         method: "GET",
         credentials: "include",
@@ -33,11 +32,7 @@ export const register = async (formData: RegisterFormData) => {
       }
   
       return response.json();
-    } catch (error:Error) {
-      console.error("Error validating token:", error.message);
-      throw new error;
-    }
-  };
+    };
 
 export const signIn= async (formData:SignInFormData) => {
   const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
