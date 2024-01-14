@@ -22,9 +22,6 @@ export const register = async (formData: RegisterFormData) => {
       const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
         method: "GET",
         credentials: "include",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("auth_token") || ''}`,
-        },
       });
   
       if (!response.ok) {
@@ -61,3 +58,17 @@ export const signOut = async () => {
   }
   localStorage.removeItem("auth_token");
 }
+
+export const addMyHotel = async (hotelFormData: FormData) => {
+  const response = await fetch(`${API_BASE_URL}/api/my-hotels`, {
+    method: "POST",
+    credentials: "include",
+    body: hotelFormData,
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to add hotel");
+  }
+
+  return response.json();
+};

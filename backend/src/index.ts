@@ -6,6 +6,14 @@ import userRoutes from './routes/users'
 import authRoutes from './routes/auth'
 import cookieParser from "cookie-parser";
 import path from "path";
+import {v2 as cloudinary} from "cloudinary";
+import myHotelsRoutes from './routes/my-hotels'
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 const app=express();
 app.use(cookieParser());
@@ -22,6 +30,7 @@ app.use(cors(
 app.use(express.static(path.join(__dirname,"../../frontend/dist")));
 app.use('/api/users',userRoutes);
 app.use('/api/auth',authRoutes);
+app.use('/api/my-hotels',myHotelsRoutes);
 
 app.listen(3000,()=>{
     console.log("Server is running on port 3000");
