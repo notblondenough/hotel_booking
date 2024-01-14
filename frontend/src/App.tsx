@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/register" element={<Layout><Register></Register></Layout>} />
         <Route path="/sign-in" element={<Layout><SignIn></SignIn></Layout>} />
         {isLoggedIn && (<Route path="/add-hotel" element={<Layout><AddHotel></AddHotel></Layout>} />)}
-        {/* <Route path="*" element={}/> */}
+        <Route path="*" element={<p>alok</p>}/>
       </Routes>
     </Router>
   )
